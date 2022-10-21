@@ -1,0 +1,9 @@
+{% extends 'html/base.html'%}
+
+{% block title%} Index {% endblock %}
+
+
+{% block content %}
+<h1>Bienvenido, {{ current_user.Nombre_completo }}</h1>	
+<a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}

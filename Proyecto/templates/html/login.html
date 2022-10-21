@@ -1,0 +1,39 @@
+{% extends 'html/base.html'%}
+
+{% block title%} Login {% endblock %}
+
+{%block CSS%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/estilo_login.css')}}">
+{%endblock%}
+
+{% block content %}
+
+
+			<form action="/login" method="post" id="login-form" >
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<br />
+					{% for message in messages %}
+						<div class="alert alert-primary alert-dismissible" role="alert">
+							<strong>{{ message }}</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+					
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			
+                 <section class="form-login">
+				 
+                      <h1>Login</h1>
+					  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                      <input class="controls" type="text" name="username" id="username"  placeholder="Usuario">
+                      <input class="controls" type="password"  name="password" id="password" placeholder="Contraseña">
+                      <input class="buttons" type="submit" name="" value="Ingresar">
+               
+                
+                  </section>
+                <br />
+                <br />
+            </form>
+{% endblock %}
